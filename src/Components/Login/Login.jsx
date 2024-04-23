@@ -1,12 +1,37 @@
 import { useState } from 'react';
+import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [Tipo, setTipo] = useState('0');
+
+  const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(email, password);
+    axios({
+      method: 'post',
+      url: `http://localhost:48799/iniciarSesion`,
+      data: {
+        Correo: email,
+        Contraseña: password,
+        Tipo: Tipo,
+      },
+    })
+      .then((response) => {
+        console.log(response.data);
+        if (response.data.success === true) {
+          navigate('/Home');
+        } else {
+          alert('Usuario o contraseña incorrectos');
+        }
+      })
+      .catch((error) => {
+        console.log(error);
+        // Handle login error
+      });
   };
 
   return (
@@ -49,6 +74,14 @@ const Login = () => {
             required
           />
         </div>
+        <select
+          value={Tipo}
+          onChange={(e) => setTipo(e.target.value)}
+          className="mb-4"
+        >
+          <option value="0">Empresa</option>
+          <option value="1">Usuario</option>
+        </select>
         <div className="flex items-center justify-between">
           <button
             className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
