@@ -1,10 +1,14 @@
-import Login from './Login/Login';
+import { Routes, Route } from 'react-router-dom';
+import Login from './Components/Login/Login';
+import Home from './Views/Home/Home';
 
 function App() {
   return (
     <>
-      <h1 className="text-3xl font-bold underline">Hello world!</h1>
-      <Login />
+      <Routes>
+        <Route path="/" element={<Login />} />
+        <Route path="/home" element={<Home />} />
+      </Routes>
     </>
   );
 }
