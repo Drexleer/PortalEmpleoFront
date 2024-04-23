@@ -1,37 +1,32 @@
 import { useState } from 'react';
-import axios from 'axios';
+import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
+import { fetchUserLogin } from '../Redux/Slices/LoginSlice';
 
 const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [Tipo, setTipo] = useState('0');
+  const [tipo, setTipo] = useState('0');
 
+  const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    axios({
-      method: 'post',
-      url: `http://localhost:48799/iniciarSesion`,
-      data: {
-        Correo: email,
-        Contraseña: password,
-        Tipo: Tipo,
-      },
-    })
-      .then((response) => {
-        console.log(response.data);
-        if (response.data.success === true) {
-          navigate('/Home');
-        } else {
-          alert('Usuario o contraseña incorrectos');
-        }
-      })
-      .catch((error) => {
-        console.log(error);
-        // Handle login error
-      });
+
+    const form = {
+      Correo: email,
+      Contraseña: password,
+      Tipo: tipo,
+    };
+
+    const { access } = await dispatch(fetchUserLogin(form)); // Usa la función fetchUserLogin para enviar la solicitud
+
+    if (access) {
+      navigate('/Home');
+    } else {
+      alert('Error de inicio de sesión');
+    }
   };
 
   return (
@@ -75,7 +70,7 @@ const Login = () => {
           />
         </div>
         <select
-          value={Tipo}
+          value={tipo}
           onChange={(e) => setTipo(e.target.value)}
           className="mb-4"
         >
