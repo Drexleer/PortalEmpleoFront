@@ -20,7 +20,7 @@
             <li>Registro de Usuarios: Los nuevos usuarios pueden registrarse en la aplicación.</li>
             <li>Búsqueda de Ofertas de Empleo: Los usuarios pueden buscar ofertas de empleo por título o descripción.</li>
             <li>Postulación a Ofertas: Los usuarios pueden postularse a ofertas de empleo enviando su currículum.</li>
-            <li>Creación de Ofertas (Solo para Administradores): Los administradores pueden crear nuevas ofertas de empleo.</li>
+            <li>Creación de Ofertas (Solo para EMPRESAS): Las Empresas pueden crear nuevas ofertas de empleo.</li>
         </ul>
     </div>
 </body>
