@@ -20,10 +20,11 @@ const Login = () => {
       Tipo: tipo,
     };
 
-    const { access } = await dispatch(fetchUserLogin(form)); // Usa la función fetchUserLogin para enviar la solicitud
+    const { access } = await dispatch(fetchUserLogin(form));
 
     if (access) {
       navigate('/');
+      window.alert('Bienvenido');
     } else {
       alert('Error de inicio de sesión');
     }

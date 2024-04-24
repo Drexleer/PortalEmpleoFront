@@ -1,7 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 import axios from 'axios';
 
-const apiUrl = 'http://:localhost:5010/iniciarSesion';
+const apiUrl = 'http://localhost:5010/iniciarSesion';
 
 // Set el estado de usuario cuando hacen login o logout
 export const userLoginSlice = createSlice({
