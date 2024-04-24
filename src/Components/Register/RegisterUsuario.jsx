@@ -13,7 +13,7 @@ const RegisterUsuario = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     axios
-      .post('http://localhost:48799/Usuarios', {
+      .post('http://localhost:5010/Usuarios', {
         Nombre: nombre,
         Correo: correo,
         Telefono: telefono,

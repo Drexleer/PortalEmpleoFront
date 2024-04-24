@@ -15,7 +15,7 @@ const Register = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     axios
-      .post('http://localhost:48799/Empresas', {
+      .post('http://localhost:5010/Empresas', {
         Nombre: nombre,
         Descripcion: descripcion,
         Tamaño: tamaño,

@@ -24,7 +24,7 @@ export default function Home() {
   useEffect(() => {
     const fetchOfertas = async () => {
       try {
-        const response = await axios.get('http://localhost:48799/Ofertas');
+        const response = await axios.get('http://localhost:5010/Ofertas');
         setOfertas(response.data);
       } catch (error) {
         console.error('Error al obtener las ofertas de empleo:', error);

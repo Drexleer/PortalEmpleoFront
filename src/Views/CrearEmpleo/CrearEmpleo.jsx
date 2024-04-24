@@ -15,7 +15,7 @@ const CrearEmpleo = () => {
     e.preventDefault();
 
     try {
-      const response = await axios.post('http://localhost:48799/Ofertas', {
+      const response = await axios.post('http://localhost:5010/Ofertas', {
         nombre,
         descripcion,
         salario: parseFloat(salario),

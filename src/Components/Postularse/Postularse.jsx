@@ -23,7 +23,7 @@ const Postularse = ({ ofertaId, onClose }) => {
       formData.append('UsuarioId', user.usuarioId);
       formData.append('ArchivoCV', archivoCV);
 
-      await axios.post('http://localhost:48799/Postulaciones', formData);
+      await axios.post('http://localhost:5010/Postulaciones', formData);
 
       alert('¡Te has postulado exitosamente!');
       setModalIsOpen(false);
