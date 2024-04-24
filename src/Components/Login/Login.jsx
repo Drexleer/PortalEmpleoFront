@@ -23,7 +23,7 @@ const Login = () => {
     const { access } = await dispatch(fetchUserLogin(form)); // Usa la función fetchUserLogin para enviar la solicitud
 
     if (access) {
-      navigate('/Home');
+      navigate('/');
     } else {
       alert('Error de inicio de sesión');
     }

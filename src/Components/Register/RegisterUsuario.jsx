@@ -24,7 +24,7 @@ const RegisterUsuario = () => {
         console.log(response.data);
         if (response.data.success === true) {
           alert('Usuario registrado exitosamente');
-          navigate('/Home');
+          navigate('/Login');
         } else {
           alert(response.data.message);
         }

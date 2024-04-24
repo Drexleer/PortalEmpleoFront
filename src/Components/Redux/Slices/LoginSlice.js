@@ -28,10 +28,17 @@ export const fetchUserLogin = (form) => {
   return async (dispatch) => {
     try {
       const { data } = await axios.post(apiUrl, form);
-      localStorage.setItem('user', JSON.stringify(data.usuario));
+      let user = null;
 
-      if (data.success) {
-        dispatch(loginUser(data.usuario));
+      if (data.success && data.usuario) {
+        user = data.usuario;
+      } else if (data.success && data.empresa) {
+        user = data.empresa;
+      }
+
+      if (user) {
+        dispatch(loginUser(user));
+        localStorage.setItem('user', JSON.stringify(user));
         return { access: true };
       }
     } catch (error) {
