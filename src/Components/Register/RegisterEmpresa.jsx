@@ -28,7 +28,7 @@ const Register = () => {
         console.log(response.data);
         if (response.data.success === true) {
           alert('Empresa registrada exitosamente');
-          navigate('/Home');
+          navigate('/Login');
         } else {
           alert(response.data.message);
         }
