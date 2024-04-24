@@ -12,7 +12,6 @@ export default function Home() {
   const user = useSelector((state) => state.usersLogin.user);
   const [ofertas, setOfertas] = useState([]);
   const [modalIsOpen, setModalIsOpen] = useState(false);
-  const [empresa, setEmpresa] = useState([]);
   const dispatch = useDispatch();
 
   useEffect(() => {
